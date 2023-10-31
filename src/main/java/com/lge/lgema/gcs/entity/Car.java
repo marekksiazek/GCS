@@ -1,7 +1,6 @@
 package com.lge.lgema.gcs.entity;
 
 import jakarta.persistence.*;
-import org.springframework.orm.jpa.vendor.Database;
 
 import java.util.Date;
 
@@ -17,18 +16,19 @@ public class Car {
     private String carBrand;
     @Column (name = "car_model")
     private String carModel;
-    @Column (name = "TypPrzepustki")
-    private String passType;
+//    @Enumerated(EnumType.STRING)
+//    @Column (name = "TypPrzepustki")
+//    private PassType passType;
     @Column (name = "PrzepustkaDO")
     private Date passTo;
 
     public Car(){    }
 
-    public Car(String carId, String carBrand, String carModel, String passType, Date passTo) {
+    public Car(String carId, String carBrand, String carModel, PassType passType, Date passTo) {
         this.carId = carId;
         this.carBrand = carBrand;
         this.carModel = carModel;
-        this.passType = passType;
+//        this.passType = passType;
         this.passTo = passTo;
     }
 
@@ -56,13 +56,13 @@ public class Car {
         this.carModel = carModel;
     }
 
-    public String getPassType() {
-        return passType;
-    }
-
-    public void setPassType(String passType) {
-        this.passType = passType;
-    }
+//    public PassType getPassType() {
+//        return passType;
+//    }
+//
+//    public void setPassType(PassType passType) {
+//        this.passType = passType;
+//    }
 
     public Date getPassTo() {
         return passTo;
@@ -78,7 +78,7 @@ public class Car {
                 "carId='" + carId + '\'' +
                 ", carBrand='" + carBrand + '\'' +
                 ", carModel='" + carModel + '\'' +
-                ", passType=" + passType +
+//                ", passType=" + passType +
                 ", passTo=" + passTo +
                 '}';
     }
